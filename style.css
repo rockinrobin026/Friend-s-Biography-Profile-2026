@@ -1,109 +1,208 @@
-/* Base Layout with Pastel Pink Background */
+/* Base Layout with Pastel Pink Aesthetics */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #ffe5ec; /* Pastel Pink */
     margin: 0;
-    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffe5ec;
+    color: #4a4a4a;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    box-sizing: border-box;
+    padding-bottom: 100px;
 }
 
 .drive-container {
-    width: 100%;
-    max-width: 900px;
-    margin-bottom: 100px; /* Space so content doesn't hit music player */
+    width: 90%;
+    max-width: 1000px;
+    margin-top: 40px;
 }
 
 .drive-title {
-    color: #ff8fab;
-    font-size: 2rem;
+    font-size: 28px;
+    color: #ff85a2;
+    border-bottom: 3px solid #ffb3c6;
+    padding-bottom: 10px;
     margin-bottom: 30px;
 }
 
-/* Folders Grid layout */
+/* Folder System Grid Arrangement */
 .folders-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 25px;
 }
 
-/* Individual Folders: Lighter pink than background */
 .folder {
-    background-color: #fff0f3; /* Lighter pastel pink */
-    border: 2px solid #ffccd5;
+    background-color: #ffffff;
+    border: 2px solid #ffc2d1;
     border-radius: 12px;
-    padding: 20px 10px;
+    padding: 20px;
     text-align: center;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .folder:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(255, 143, 171, 0.3);
+    box-shadow: 0 8px 15px rgba(255, 133, 162, 0.2);
+    background-color: #fff0f3;
 }
 
 .folder-icon {
-    font-size: 3rem;
-    margin-bottom: 8px;
+    font-size: 50px;
+    margin-bottom: 10px;
 }
 
 .folder p {
     margin: 0;
     font-weight: 600;
-    color: #ff758f;
-    font-size: 0.95rem;
+    font-size: 15px;
+    color: #6c757d;
 }
 
-/* Profile Image Popups Overlay */
-.popup-overlay {
-    display: none; /* Hidden by default */
+/* Interactive Popup Windows (Modals) */
+.overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dimmed back-drop */
+    background-color: rgba(0, 0, 0, 0.4);
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 1000;
 }
 
-.popup-content {
-    max-width: 90%;
-    max-height: 85vh;
-    border-radius: 15px;
-    overflow-y: auto; /* Allows scrolling if image layout is tall */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+.popup-box {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 600px;
+    height: 85vh;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 4px solid #ffb3c6;
+    overflow: hidden;
 }
 
-.popup-content img {
+.scroll-content {
     width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 15px;
+    height: 100%;
+    overflow-y: auto;
+    padding: 25px;
+    box-sizing: border-box;
 }
 
-/* Custom Minimal Music Player at Bottom */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #ff85a2;
+    cursor: pointer;
+    z-index: 1010;
+}
+
+.close-btn:hover {
+    color: #f72585;
+}
+
+.profile-img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    margin-bottom: 25px;
+}
+
+/* Interactive Messaging & Upload Area styling */
+.interaction-zone {
+    background-color: #fff0f3;
+    border-radius: 15px;
+    padding: 20px;
+    border: 2px dashed #ffb3c6;
+    margin-top: 20px;
+}
+
+.interaction-zone h3 {
+    margin-top: 0;
+    color: #ff758f;
+    font-size: 18px;
+    text-align: center;
+}
+
+.hidden-name {
+    display: none;
+}
+
+.message-form textarea {
+    width: 100%;
+    height: 100px;
+    border: 2px solid #ffc2d1;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: inherit;
+    resize: none;
+    outline: none;
+    margin-bottom: 12px;
+}
+
+.message-form textarea:focus {
+    border-color: #ff85a2;
+}
+
+.send-btn {
+    width: 100%;
+    background-color: #ff85a2;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-bottom: 15px;
+}
+
+.send-btn:hover {
+    background-color: #ff477e;
+}
+
+.drive-link-btn {
+    display: block;
+    text-align: center;
+    background-color: #74c69d;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background-color 0.2s;
+}
+
+.drive-link-btn:hover {
+    background-color: #52b788;
+}
+
+/* Fixed Bottom Music Player Design */
 .music-player {
     position: fixed;
     bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #fff0f3;
-    border: 2px solid #ffccd5;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #ffb3c6;
     border-radius: 50px;
     padding: 10px 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 8px 20px rgba(255, 143, 171, 0.2);
-    z-index: 1000;
+    width: 320px;
+    box-shadow: 0 8px 24px rgba(255, 133, 162, 0.15);
+    backdrop-filter: blur(5px);
 }
 
 .music-info {
@@ -113,38 +212,32 @@ body {
 }
 
 .music-icon {
-    font-size: 1.5rem;
-}
-
-.music-info p {
-    margin: 0;
+    font-size: 24px;
 }
 
 .song-title {
+    margin: 0;
     font-weight: bold;
+    font-size: 14px;
     color: #ff758f;
-    font-size: 0.9rem;
 }
 
 .song-artist {
-    color: #c9184a;
-    font-size: 0.75rem;
+    margin: 0;
+    font-size: 11px;
+    color: #a3a3a3;
 }
 
-/* Play/Pause Button */
 #play-btn {
-    background-color: white;
-    border: 1px solid #ffccd5;
-    color: #ff758f;
-    padding: 8px 18px;
+    background-color: #ff85a2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
     border-radius: 20px;
-    cursor: pointer;
     font-weight: bold;
-    font-size: 0.85rem;
-    transition: 0.2s;
+    cursor: pointer;
 }
 
 #play-btn:hover {
-    background-color: #ffccd5;
-    color: white;
+    background-color: #ff477e;
 }
