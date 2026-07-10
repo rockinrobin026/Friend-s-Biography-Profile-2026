@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memory Drive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Google Drive Layout Grid -->
+    <div class="drive-container">
+        <h1 class="drive-title">📁 Our Memory Drive</h1>
+        
+        <!-- Folders Section -->
+        <div class="folders-grid">
+            <!-- Folder 1: Jilian -->
+            <div class="folder" onclick="showProfile('jilian-pop')">
+                <div class="folder-icon">📂</div>
+                <p>Jilian Fungo</p>
+            </div>
+            <!-- Folder 2: Mica -->
+            <div class="folder" onclick="showProfile('mica-pop')">
+                <div class="folder-icon">📂</div>
+                <p>Mica Llanes</p>
+            </div>
+            <!-- Folder 3: Noah -->
+            <div class="folder" onclick="showProfile('noah-pop')">
+                <div class="folder-icon">📂</div>
+                <p>Noah Elijah</p>
+            </div>
+            <!-- Folder 4: Pauleen -->
+            <div class="folder" onclick="showProfile('pauleen-pop')">
+                <div class="folder-icon">📂</div>
+                <p>Pauleen Anne</p>
+            </div>
+            <!-- Folder 5: SHS Friends -->
+            <div class="folder" onclick="showProfile('shs-pop')">
+                <div class="folder-icon">📂</div>
+                <p>SHS Friends</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popups containing your custom scrapbook images -->
+    <div id="jilian-pop" class="popup-overlay" onclick="closeProfile(event)">
+        <div class="popup-content"><img src="jilian.jpg" alt="Jilian Profile"></div>
+    </div>
+    <div id="mica-pop" class="popup-overlay" onclick="closeProfile(event)">
+        <div class="popup-content"><img src="mica.jpg" alt="Mica Profile"></div>
+    </div>
+    <div id="noah-pop" class="popup-overlay" onclick="closeProfile(event)">
+        <div class="popup-content"><img src="noah.jpg" alt="Noah Profile"></div>
+    </div>
+    <div id="pauleen-pop" class="popup-overlay" onclick="closeProfile(event)">
+        <div class="popup-content"><img src="pauleen.jpg" alt="Pauleen Profile"></div>
+    </div>
+    <div id="shs-pop" class="popup-overlay" onclick="closeProfile(event)">
+        <div class="popup-content"><img src="shs-friends.jpg" alt="SHS Friends Profile"></div>
+    </div>
+
+    <!-- Sticky Music Player Widget at the Bottom -->
+    <div class="music-player">
+        <div class="music-info">
+            <span class="music-icon">🎵</span>
+            <div>
+                <p class="song-title">Our Dedicated Song</p>
+                <p class="song-artist">Click play to listen</p>
+            </div>
+        </div>
+        <!-- Hidden Audio Element -->
+        <audio id="bg-music" src="song.mp3"></audio>
+        <!-- Interactive Custom Play Button -->
+        <button id="play-btn" onclick="toggleMusic()">▶ Play</button>
+    </div>
+
+    <!-- Small, simple background interaction code -->
+    <script>
+        function showProfile(id) {
+            document.getElementById(id).style.display = "flex";
+        }
+        function closeProfile(event) {
+            // Closes the image when clicking anywhere outside of it
+            if(event.target.className === "popup-overlay") {
+                event.target.style.display = "none";
+            }
+        }
+        function toggleMusic() {
+            var audio = document.getElementById("bg-music");
+            var btn = document.getElementById("play-btn");
+            if (audio.paused) {
+                audio.play();
+                btn.innerText = "⏸ Pause";
+                btn.style.background = "#ffb3c6";
+            } else {
+                audio.pause();
+                btn.innerText = "▶ Play";
+                btn.style.background = "#fff";
+            }
+        }
+    </script>
+
+</body>
+</html>
